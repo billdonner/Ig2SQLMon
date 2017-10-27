@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>GRAND-CONFIG</key>
-	<string>https://billdonner.com/tr/blue-server-config.json</string>
+	<string>http://billdonner.com/tr/blue-server-config.json</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>

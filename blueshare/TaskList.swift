@@ -7,6 +7,48 @@
 //
 
 import Foundation
+public struct ServerConfig: Codable {
+    let server:String
+    let statusURL:String
+    let kind:String
+}
+public struct AllServersConfig :Codable {
+    let comment: String
+    let servers:[ServerConfig]
+}
+class BlueConfig {
+    let remoteurl: URL?
+    var config: AllServersConfig?
+    
+    init (_ remoteurl:URL, _ completion:@escaping ((AllServersConfig?)->())) throws {
+        self.remoteurl = remoteurl
+        let request = URLRequest(url: remoteurl)
+        let session =  MasterTasks.session
+        let task = session.dataTask(with: request) {data,response,error in
+            if let httpResponse = response as? HTTPURLResponse  {
+                let code = httpResponse.statusCode
+                guard code == 200 else {
+                    print("remoteHTTPCall to \(remoteurl) completing with error \(code)")
+                    completion(nil) //fix
+                    return
+                }
+            }
+            guard error == nil  else {
+                let er = error! as NSError
+                print("remoteHTTPCall to \(remoteurl) completing  code nserror \(er.code) \(er)")
+                //let code = er.code
+                completion(nil) //fix
+                return
+            }
+            if let data = data {
+                self.config = try? MasterTasks.jsonDecoder.decode(AllServersConfig.self, from: data)
+                print(self.config!)
+                completion(self.config!)
+            }
+        }
+        task.resume()
+    }
+}
 
 public enum DisplayDecorations : Int {
     case reddish
@@ -49,7 +91,7 @@ struct MasterTasks {
     
     static  let jsonDecoder = JSONDecoder()
     static let framesPerSecond:Double = 20
-
+    
     fileprivate static var taskRows: [TaskData] = []
     
     static var info : [String:Any] = [:] //maps url to taskRows indicies
@@ -60,15 +102,29 @@ struct MasterTasks {
         urlconfig.timeoutIntervalForResource = 15
         return  URLSession(configuration: urlconfig, delegate: nil, delegateQueue: nil)
     }()
-    
-    
-    static func setup() throws{
-        let bc =   BlueConfig()
-        try bc.process( configurl: nil)
-        if  let bt = bc.grandConfig["servers"] as? [ServerInfo] {
-            MasterTasks.make(bt)
+    static func setup() throws {
+        let _ =  try  BlueConfig(URL(string:"http://billdonner.com/tr/blue-server-config.json")!) { ass in
+            guard let allservers = ass else { return }
+            print ("comment:\(String(describing: allservers.comment))")
+            var idx = 0
+            info = [:]
+            for each in allservers.servers {
+                let bb = each.server
+                let cc = each.statusURL
+                if  let components =  URLComponents(string: cc),
+                    let cp = components.port {
+                    let port = UInt16(cp)
+                    let key = "\(bb):\(port)"
+                    
+                    info[key] = idx
+                    taskRows.append(TaskData(idx: idx, status: 100, name:bb, server: bb, port:port ,statusEndpoint:cc , uptime: 0.0, description: "", version:"", downcount: idx, ish:.reddish))
+                }
+                idx += 1
+            } // for
         }
     }
+    
+    
     
     static  func runScheduler() {
         // counts down each task and starts remote api call whenever apvarpriate
@@ -150,25 +206,7 @@ struct MasterTasks {
         return false
     }
     
-    static func make(_ x:[ServerInfo]) {
-        var idx = 0
-        info = [:]
-        for each in x {
-            if let comment = each["comment"] {
-                print ("comment:\(comment)")
-            }
-            if let bb = each["server"],  let cc = each["status-url"] ,
-                let components =  URLComponents(string: cc),
-                let cp = components.port {
-                let port = UInt16(cp)
-                let key = "\(bb):\(port)"
-                
-                info[key] = idx
-                taskRows.append(TaskData(idx: idx, status: 100, name:bb, server: bb, port:port ,statusEndpoint:cc , uptime: 0.0, description: "", version:"", downcount: idx, ish:.reddish))
-            }
-            idx += 1
-        } // for
-    }
+    
     
     static  func contentsOrderedBy(_ orderedBy: TaskSortOrdering, ascending: Bool) -> [TaskData] {
         let sortedFiles: [TaskData]
@@ -208,7 +246,7 @@ struct MasterTasks {
     }
 }
 extension MasterTasks {
-
+    
     // make a remoteurl call
     // - the baseurl is used only as a key to obtain the index in the taskrows table
     

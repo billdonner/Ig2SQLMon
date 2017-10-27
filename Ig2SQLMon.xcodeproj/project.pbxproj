@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AD7E99851FA3998500C7A37F /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99811FA3998500C7A37F /* TaskList.swift */; };
-		AD7E99861FA3998500C7A37F /* BlueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99821FA3998500C7A37F /* BlueConfig.swift */; };
 		AD7E99871FA3998500C7A37F /* Ig2SQLStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */; };
 		AD7E99881FA3998500C7A37F /* TaskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99841FA3998500C7A37F /* TaskData.swift */; };
 		AD7E998F1FA399F100C7A37F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99891FA399F100C7A37F /* Main.storyboard */; };
@@ -24,7 +23,6 @@
 		AD7E996D1FA3995B00C7A37F /* Ig2SQLMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ig2SQLMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7E997A1FA3995C00C7A37F /* Ig2SQLMon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ig2SQLMon.entitlements; sourceTree = "<group>"; };
 		AD7E99811FA3998500C7A37F /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
-		AD7E99821FA3998500C7A37F /* BlueConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueConfig.swift; sourceTree = "<group>"; };
 		AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ig2SQLStatus.swift; sourceTree = "<group>"; };
 		AD7E99841FA3998500C7A37F /* TaskData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskData.swift; sourceTree = "<group>"; };
 		AD7E99891FA399F100C7A37F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				AD7E99811FA3998500C7A37F /* TaskList.swift */,
-				AD7E99821FA3998500C7A37F /* BlueConfig.swift */,
 				AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */,
 				AD7E99841FA3998500C7A37F /* TaskData.swift */,
 			);
@@ -168,7 +165,6 @@
 				AD7E99851FA3998500C7A37F /* TaskList.swift in Sources */,
 				AD7E99931FA399F100C7A37F /* IGBlueMonViewController.swift in Sources */,
 				AD7E99911FA399F100C7A37F /* WindowController.swift in Sources */,
-				AD7E99861FA3998500C7A37F /* BlueConfig.swift in Sources */,
 				AD7E99941FA399F100C7A37F /* AppDelegate.swift in Sources */,
 				AD7E99881FA3998500C7A37F /* TaskData.swift in Sources */,
 				AD7E99871FA3998500C7A37F /* Ig2SQLStatus.swift in Sources */,
