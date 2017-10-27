@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 public struct ServerConfig: Codable {
     let server:String
     let statusURL:String
@@ -17,25 +18,33 @@ public struct AllServersConfig :Codable {
     let servers:[ServerConfig]
 }
 class BlueConfig {
-    let remoteurl: URL?
+    let remoteurl: URL
     var config: AllServersConfig?
+    var  session  =  { () -> URLSession in
+        let urlconfig = URLSessionConfiguration.default
+        urlconfig.timeoutIntervalForRequest = 15
+        urlconfig.timeoutIntervalForResource = 15
+        return  URLSession(configuration: urlconfig, delegate: nil, delegateQueue: nil)
+    }()
     
-    init (_ remoteurl:URL, _ completion:@escaping ((AllServersConfig?)->())) throws {
+    init (_ remoteurl:URL) { //, _ completion:@escaping ((AllServersConfig?)->())) throws {
         self.remoteurl = remoteurl
+    }
+    func run(_ completion:@escaping ((AllServersConfig?)->())) {
+        //let data = try? Data(contentsOf:remoteurl)
         let request = URLRequest(url: remoteurl)
-        let session =  MasterTasks.session
         let task = session.dataTask(with: request) {data,response,error in
             if let httpResponse = response as? HTTPURLResponse  {
                 let code = httpResponse.statusCode
                 guard code == 200 else {
-                    print("remoteHTTPCall to \(remoteurl) completing with error \(code)")
+                    print("remoteHTTPCall to \(self.remoteurl) completing with error \(code)")
                     completion(nil) //fix
                     return
                 }
             }
             guard error == nil  else {
                 let er = error! as NSError
-                print("remoteHTTPCall to \(remoteurl) completing  code nserror \(er.code) \(er)")
+                print("remoteHTTPCall to \(self.remoteurl) completing  code nserror \(er.code) \(er)")
                 //let code = er.code
                 completion(nil) //fix
                 return
@@ -45,8 +54,8 @@ class BlueConfig {
                 print(self.config!)
                 completion(self.config!)
             }
-        }
-        task.resume()
+         }
+         task.resume()
     }
 }
 
@@ -103,29 +112,36 @@ struct MasterTasks {
         return  URLSession(configuration: urlconfig, delegate: nil, delegateQueue: nil)
     }()
     static func setup() throws {
-        let _ =  try  BlueConfig(URL(string:"http://billdonner.com/tr/blue-server-config.json")!) { ass in
+        func tiny()  -> URL? {
+            if let iDict = Bundle.main.infoDictionary {
+                if let w =  iDict["GRAND-CONFIG"] as? String {
+                    return URL(string:w)
+                }
+            }
+            return nil
+        }
+        if let ss =  tiny() {
+        let bc = BlueConfig( ss)
+         let _ = bc.run { ass in
             guard let allservers = ass else { return }
             print ("comment:\(String(describing: allservers.comment))")
             var idx = 0
             info = [:]
-            for each in allservers.servers {
-                let bb = each.server
-                let cc = each.statusURL
-                if  let components =  URLComponents(string: cc),
+            for each in allservers.servers { 
+                if  let components =  URLComponents(string:  each.statusURL),
                     let cp = components.port {
                     let port = UInt16(cp)
-                    let key = "\(bb):\(port)"
+                    let key = "\(each.server):\(port)"
                     
                     info[key] = idx
-                    taskRows.append(TaskData(idx: idx, status: 100, name:bb, server: bb, port:port ,statusEndpoint:cc , uptime: 0.0, description: "", version:"", downcount: idx, ish:.reddish))
+                    taskRows.append(TaskData(idx: idx, status: 100, name:each.server, server: each.server, port:port ,statusEndpoint: each.statusURL , uptime: 0.0, description: "", version:"", downcount: idx, ish:.reddish))
                 }
                 idx += 1
             } // for
         }
+        }
     }
-    
-    
-    
+
     static  func runScheduler() {
         // counts down each task and starts remote api call whenever apvarpriate
         let theRows = taskRows // copy so it can mutate

@@ -4,9 +4,9 @@ import AppKit
 
 extension DisplayDecorations {
     
-    static let bicon = NSImage(named:NSImage.Name(rawValue: "blue-ball"))!
-    static let ricon = NSImage(named:NSImage.Name(rawValue: "red-ball"))!
-    static let yicon = NSImage(named:NSImage.Name(rawValue: "yellow-ball"))!
+    static let bicon = NSImage(named: NSImage.Name(rawValue: "blue-ball") )!
+    static let ricon = NSImage(named: NSImage.Name(rawValue: "red-ball"))!
+    static let yicon = NSImage(named: NSImage.Name(rawValue: "yellow-ball"))!
     
     func imageFor()->NSImage {
         switch self {
@@ -196,7 +196,7 @@ extension IG2MonViewController: NSTableViewDelegate {
             cellIdentifier = CellIdentifiers.VersionCell
         }
         
-        if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
+        if let cell = tableView.makeView(withIdentifier:  NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             cell.imageView?.image = image ?? nil
             return cell
