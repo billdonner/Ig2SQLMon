@@ -31,32 +31,32 @@ class BlueConfig {
         self.remoteurl = remoteurl
     }
     func run(_ completion:@escaping ((AllServersConfig?)->())) {
-        //let data = try? Data(contentsOf:remoteurl)
-        let request = URLRequest(url: remoteurl)
-        let task = session.dataTask(with: request) {data,response,error in
-            if let httpResponse = response as? HTTPURLResponse  {
-                let code = httpResponse.statusCode
-                guard code == 200 else {
-                    print("remoteHTTPCall to \(self.remoteurl) completing with error \(code)")
-                    completion(nil) //fix
-                    return
-                }
-            }
-            guard error == nil  else {
-                let er = error! as NSError
-                print("remoteHTTPCall to \(self.remoteurl) completing  code nserror \(er.code) \(er)")
-                //let code = er.code
-                completion(nil) //fix
-                return
-            }
+        let data = try? Data(contentsOf:remoteurl)
+//        let request = URLRequest(url: remoteurl)
+//        let task = session.dataTask(with: request) {data,response,error in
+//            if let httpResponse = response as? HTTPURLResponse  {
+//                let code = httpResponse.statusCode
+//                guard code == 200 else {
+//                    print("remoteHTTPCall to \(self.remoteurl) completing with error \(code)")
+//                    completion(nil) //fix
+//                    return
+//                }
+//            }
+//            guard error == nil  else {
+//                let er = error! as NSError
+//                print("remoteHTTPCall to \(self.remoteurl) completing  code nserror \(er.code) \(er)")
+//                //let code = er.code
+//                completion(nil) //fix
+//                return
+//            }
             if let data = data {
                 self.config = try? MasterTasks.jsonDecoder.decode(AllServersConfig.self, from: data)
                 print(self.config!)
                 completion(self.config!)
             }
          }
-         task.resume()
-    }
+         //task.resume()
+  //  }
 }
 
 public enum DisplayDecorations : Int {
@@ -115,7 +115,7 @@ struct MasterTasks {
         func tiny()  -> URL? {
             if let iDict = Bundle.main.infoDictionary {
                 if let w =  iDict["GRAND-CONFIG"] as? String {
-                    return URL(string:w)
+                    return Bundle.main.url(forResource: w, withExtension: nil)
                 }
             }
             return nil

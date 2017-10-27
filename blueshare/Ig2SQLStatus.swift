@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Ig2SQLStatus
 //  Ig2SQL
 //
 //  Created by william donner on 10/26/17.
@@ -23,6 +23,6 @@ public struct Ig2SQLStatus: Codable {
     let status:Int
 }
 public protocol Ig2SQLStatusProtocol {
-    func xmt() -> Ig2SQLStatus
-    func rcv(completion:(Ig2SQLStatus) -> ())
+    func prepareforxmt() -> Ig2SQLStatus
+    func rcvthenprocess(completion:(Ig2SQLStatus) -> ())
 }

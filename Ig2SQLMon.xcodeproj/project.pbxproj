@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD60D74F1FA3F00D00FD01BB /* blue-server-config.json in Resources */ = {isa = PBXBuildFile; fileRef = AD60D74E1FA3F00D00FD01BB /* blue-server-config.json */; };
 		AD7E99851FA3998500C7A37F /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99811FA3998500C7A37F /* TaskList.swift */; };
 		AD7E99871FA3998500C7A37F /* Ig2SQLStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */; };
 		AD7E99881FA3998500C7A37F /* TaskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99841FA3998500C7A37F /* TaskData.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD60D74E1FA3F00D00FD01BB /* blue-server-config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "blue-server-config.json"; sourceTree = "<group>"; };
 		AD7E996D1FA3995B00C7A37F /* Ig2SQLMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ig2SQLMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD7E997A1FA3995C00C7A37F /* Ig2SQLMon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ig2SQLMon.entitlements; sourceTree = "<group>"; };
 		AD7E99811FA3998500C7A37F /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				AD7E99971FA39A3400C7A37F /* README.md */,
+				AD60D74E1FA3F00D00FD01BB /* blue-server-config.json */,
 				AD7E99951FA39A2300C7A37F /* Media.xcassets */,
 				AD7E99801FA3998500C7A37F /* blueshare */,
 				AD7E996F1FA3995B00C7A37F /* Ig2SQLMon */,
@@ -151,6 +154,7 @@
 				AD7E99921FA399F100C7A37F /* Assets.xcassets in Resources */,
 				AD7E99981FA39A3400C7A37F /* README.md in Resources */,
 				AD7E99961FA39A2300C7A37F /* Media.xcassets in Resources */,
+				AD60D74F1FA3F00D00FD01BB /* blue-server-config.json in Resources */,
 				AD7E998F1FA399F100C7A37F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

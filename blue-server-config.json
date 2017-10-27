@@ -1,0 +1,20 @@
+{
+    "comment": "servers monitored at chez bill7",
+    "servers": [{
+                "server": "http://socialmaxx.info",
+                "statusURL": "http://96.250.76.158:9090/json",
+                "kind":"reportsrv"
+                }, {
+                "server": "http://socialmaxx.xyz",
+                "statusURL": "http://96.250.76.158:9070/json",
+                "kind":"loginsrv"
+                }, {
+                "server": "http://socialmaxx.net",
+                "statusURL": "http://96.250.76.158:9080/json",
+                "kind":"adminsrv"
+                }, {
+                "server": "https://billdonner.com",
+                "statusURL": "https://billdonner.com/json",
+                "kind":"web"
+                }]
+}
