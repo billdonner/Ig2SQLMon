@@ -20,10 +20,24 @@
  * THE SOFTWARE.
  */
 
+
 import Cocoa
 
-@NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class WindowController: NSWindowController {
 
+  @IBAction func openDocument(_ sender: AnyObject?) {
+
+    let openPanel = NSOpenPanel()
+    openPanel.showsHiddenFiles = false
+    openPanel.canChooseFiles = false
+    openPanel.canChooseDirectories = true
+
+    openPanel.beginSheetModal(for: window!) { response in
+        guard response.rawValue == NSApplication.ModalResponse.OK.rawValue else {
+        return
+      }
+      self.contentViewController?.representedObject = openPanel.url
+    }
+  }
+  
 }
-

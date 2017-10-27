@@ -7,20 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD7E99711FA3995B00C7A37F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99701FA3995B00C7A37F /* AppDelegate.swift */; };
-		AD7E99731FA3995C00C7A37F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99721FA3995C00C7A37F /* ViewController.swift */; };
-		AD7E99751FA3995C00C7A37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99741FA3995C00C7A37F /* Assets.xcassets */; };
-		AD7E99781FA3995C00C7A37F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99761FA3995C00C7A37F /* Main.storyboard */; };
+		AD7E99851FA3998500C7A37F /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99811FA3998500C7A37F /* TaskList.swift */; };
+		AD7E99861FA3998500C7A37F /* BlueConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99821FA3998500C7A37F /* BlueConfig.swift */; };
+		AD7E99871FA3998500C7A37F /* Ig2SQLStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */; };
+		AD7E99881FA3998500C7A37F /* TaskData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99841FA3998500C7A37F /* TaskData.swift */; };
+		AD7E998F1FA399F100C7A37F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99891FA399F100C7A37F /* Main.storyboard */; };
+		AD7E99911FA399F100C7A37F /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E998B1FA399F100C7A37F /* WindowController.swift */; };
+		AD7E99921FA399F100C7A37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD7E998C1FA399F100C7A37F /* Assets.xcassets */; };
+		AD7E99931FA399F100C7A37F /* IGBlueMonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E998D1FA399F100C7A37F /* IGBlueMonViewController.swift */; };
+		AD7E99941FA399F100C7A37F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E998E1FA399F100C7A37F /* AppDelegate.swift */; };
+		AD7E99961FA39A2300C7A37F /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99951FA39A2300C7A37F /* Media.xcassets */; };
+		AD7E99981FA39A3400C7A37F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99971FA39A3400C7A37F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AD7E996D1FA3995B00C7A37F /* Ig2SQLMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ig2SQLMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD7E99701FA3995B00C7A37F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD7E99721FA3995C00C7A37F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AD7E99741FA3995C00C7A37F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD7E99771FA3995C00C7A37F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AD7E99791FA3995C00C7A37F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD7E997A1FA3995C00C7A37F /* Ig2SQLMon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ig2SQLMon.entitlements; sourceTree = "<group>"; };
+		AD7E99811FA3998500C7A37F /* TaskList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		AD7E99821FA3998500C7A37F /* BlueConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlueConfig.swift; sourceTree = "<group>"; };
+		AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ig2SQLStatus.swift; sourceTree = "<group>"; };
+		AD7E99841FA3998500C7A37F /* TaskData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskData.swift; sourceTree = "<group>"; };
+		AD7E99891FA399F100C7A37F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AD7E998A1FA399F100C7A37F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD7E998B1FA399F100C7A37F /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		AD7E998C1FA399F100C7A37F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD7E998D1FA399F100C7A37F /* IGBlueMonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IGBlueMonViewController.swift; sourceTree = "<group>"; };
+		AD7E998E1FA399F100C7A37F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AD7E99951FA39A2300C7A37F /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		AD7E99971FA39A3400C7A37F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +51,9 @@
 		AD7E99641FA3995B00C7A37F = {
 			isa = PBXGroup;
 			children = (
+				AD7E99971FA39A3400C7A37F /* README.md */,
+				AD7E99951FA39A2300C7A37F /* Media.xcassets */,
+				AD7E99801FA3998500C7A37F /* blueshare */,
 				AD7E996F1FA3995B00C7A37F /* Ig2SQLMon */,
 				AD7E996E1FA3995B00C7A37F /* Products */,
 			);
@@ -53,14 +70,26 @@
 		AD7E996F1FA3995B00C7A37F /* Ig2SQLMon */ = {
 			isa = PBXGroup;
 			children = (
-				AD7E99701FA3995B00C7A37F /* AppDelegate.swift */,
-				AD7E99721FA3995C00C7A37F /* ViewController.swift */,
-				AD7E99741FA3995C00C7A37F /* Assets.xcassets */,
-				AD7E99761FA3995C00C7A37F /* Main.storyboard */,
-				AD7E99791FA3995C00C7A37F /* Info.plist */,
+				AD7E998E1FA399F100C7A37F /* AppDelegate.swift */,
+				AD7E998C1FA399F100C7A37F /* Assets.xcassets */,
+				AD7E998D1FA399F100C7A37F /* IGBlueMonViewController.swift */,
+				AD7E998A1FA399F100C7A37F /* Info.plist */,
+				AD7E99891FA399F100C7A37F /* Main.storyboard */,
+				AD7E998B1FA399F100C7A37F /* WindowController.swift */,
 				AD7E997A1FA3995C00C7A37F /* Ig2SQLMon.entitlements */,
 			);
 			path = Ig2SQLMon;
+			sourceTree = "<group>";
+		};
+		AD7E99801FA3998500C7A37F /* blueshare */ = {
+			isa = PBXGroup;
+			children = (
+				AD7E99811FA3998500C7A37F /* TaskList.swift */,
+				AD7E99821FA3998500C7A37F /* BlueConfig.swift */,
+				AD7E99831FA3998500C7A37F /* Ig2SQLStatus.swift */,
+				AD7E99841FA3998500C7A37F /* TaskData.swift */,
+			);
+			path = blueshare;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,8 +151,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD7E99751FA3995C00C7A37F /* Assets.xcassets in Resources */,
-				AD7E99781FA3995C00C7A37F /* Main.storyboard in Resources */,
+				AD7E99921FA399F100C7A37F /* Assets.xcassets in Resources */,
+				AD7E99981FA39A3400C7A37F /* README.md in Resources */,
+				AD7E99961FA39A2300C7A37F /* Media.xcassets in Resources */,
+				AD7E998F1FA399F100C7A37F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,23 +165,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD7E99731FA3995C00C7A37F /* ViewController.swift in Sources */,
-				AD7E99711FA3995B00C7A37F /* AppDelegate.swift in Sources */,
+				AD7E99851FA3998500C7A37F /* TaskList.swift in Sources */,
+				AD7E99931FA399F100C7A37F /* IGBlueMonViewController.swift in Sources */,
+				AD7E99911FA399F100C7A37F /* WindowController.swift in Sources */,
+				AD7E99861FA3998500C7A37F /* BlueConfig.swift in Sources */,
+				AD7E99941FA399F100C7A37F /* AppDelegate.swift in Sources */,
+				AD7E99881FA3998500C7A37F /* TaskData.swift in Sources */,
+				AD7E99871FA3998500C7A37F /* Ig2SQLStatus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		AD7E99761FA3995C00C7A37F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD7E99771FA3995C00C7A37F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		AD7E997B1FA3995C00C7A37F /* Debug */ = {
